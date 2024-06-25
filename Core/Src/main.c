@@ -379,6 +379,8 @@ void StartCheckUpdateTask(void const * argument)
 	printf("L152: Starting check of update \r\n");
 	uint8_t rxBuff[6];
 	currentTime = HAL_GetTick();
+	//printf("Current time: %u \r\n", currentTime);
+	//printf("Prev time: %u \r\n", prevTime);
 	if(HAL_UART_Receive(&huart1, rxBuff, 6, 1000)==HAL_OK) //if transfer is successful
 	  {
 	    printf("Received: \r\n");
@@ -400,7 +402,7 @@ void StartCheckUpdateTask(void const * argument)
 	    if(sum = rxBuff[5]) {
 	    	printf("Other processor status is good. Version: %d \r\n", rxBuff[4]);
 	    }
-	    osDelay(10000);
+	    osDelay(9000);
 	  } else {
 	    printf("Nothing received \r\n");
 	  }
